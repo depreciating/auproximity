@@ -8,8 +8,8 @@ RUN yarn build
 RUN yarn --cwd auproximity-webui install
 RUN yarn --cwd auproximity-webui build
 
-RUN mkdir -p dist/src/dist
-RUN cp -r auproximity-webui/dist dist/src
+RUN mkdir -p dist/dist
+RUN cp -r auproximity-webui/dist/* dist/dist/
 
 
 FROM mhart/alpine-node:14
