@@ -2,7 +2,7 @@ FROM node:14 as build
 WORKDIR /usr/src/app
 
 COPY . .
-RUN HUSKY=0 yarn install
+RUN yarn install
 RUN yarn build
 
 RUN yarn --cwd auproximity-webui install
@@ -19,8 +19,7 @@ WORKDIR /usr/src/app-prod
 ENV NODE_ENV=production
 
 COPY --from=build /usr/src/app/package.json .
-RUN HUSKY=0 yarn install --production
+RUN yarn install --production
 COPY --from=build /usr/src/app/dist ./dist/
-
 
 CMD ["yarn", "start"]
