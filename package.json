@@ -20,12 +20,12 @@
   "dependencies": {
     "@microsoft/signalr": "^5.0.7",
     "@sentry/node": "^6.2.5",
-    "@skeldjs/client": "^2.11.10",
-    "@skeldjs/constant": "^2.11.10",
-    "@skeldjs/core": "^2.11.10",
-    "@skeldjs/protocol": "^2.11.10",
-    "@skeldjs/text": "^2.11.10",
-    "@skeldjs/util": "^2.11.10",
+    "@skeldjs/client": "2.11.10",
+    "@skeldjs/constant": "2.11.10",
+    "@skeldjs/core": "2.11.10",
+    "@skeldjs/protocol": "2.11.10",
+    "@skeldjs/text": "2.11.10",
+    "@skeldjs/util": "2.11.10",
     "chalk": "^4.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -66,6 +66,29 @@
     },
     "plugins": [
       "@typescript-eslint",
+      "promise"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:promise/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:import/typescript",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "quotes": "error",
+      "semi": "error"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{json,md,ts,vue,yaml}": "prettier --write"
+  }
+}      "@typescript-eslint",
       "promise"
     ],
     "extends": [
